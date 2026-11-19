@@ -9,7 +9,8 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:e2e": "playwright test --trace off"
+    "test:e2e": "vite build && playwright test --trace off",
+    "test:all": "vitest run && npm run test:e2e"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.10.0",
@@ -21,8 +22,10 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.65.1",
+    "@types/fontkit": "^2.0.9",
     "@types/pdfmake": "^0.3.3",
     "fake-indexeddb": "^6.2.8",
+    "fontkit": "^3.0.0",
     "typescript": "^7.0.2",
     "vite": "^8.3.8",
     "vitest": "^5.1.1"

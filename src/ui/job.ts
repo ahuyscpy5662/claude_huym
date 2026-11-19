@@ -202,6 +202,20 @@ export async function renderJob(root: HTMLElement, jobId: string): Promise<() =>
 
   const unsub = subscribe(jobId, schedule);
   await draw();
+  // mở lại tab: tự hỏi trạng thái các batch đang chờ
+  const j0 = await store.getJob(jobId);
+  const key = loadSettings();
+  if (j0 && key.apiKey && j0.batches.some((b) => b.status !== 'ended')) {
+    busy = true;
+    void draw();
+    try {
+      message = await checkBatches(jobId, key);
+    } catch (e) {
+      message = e instanceof Error ? e.message : String(e);
+    }
+    busy = false;
+    void draw();
+  }
   return () => {
     unsub();
     if (timer) clearTimeout(timer);

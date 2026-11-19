@@ -67,7 +67,7 @@ export async function importPdf(file: File, titleInput: string): Promise<Job> {
   const meta = await pdfTitle(doc);
   await closePdf(doc);
   const settings = loadSettings();
-  const id = crypto.randomUUID();
+  const id = typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
   const title = titleInput || meta || file.name.replace(/\.pdf$/i, '');
   const job: Job = {
     id,
