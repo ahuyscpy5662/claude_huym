@@ -1,0 +1,43 @@
+# Sinh file Xcode project:  brew install xcodegen && xcodegen generate
+name: DentalTranslator
+options:
+  bundleIdPrefix: com.personal
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+packages:
+  TranslatorCore:
+    path: TranslatorCore
+targets:
+  DentalTranslator:
+    type: application
+    platform: iOS
+    sources:
+      - path: App
+    dependencies:
+      - package: TranslatorCore
+    info:
+      path: Support/Info.plist
+      properties:
+        CFBundleDisplayName: Dịch RHM
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UIFileSharingEnabled: true
+        LSSupportsOpeningDocumentsInPlace: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.personal.dentaltranslator
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""   # điền Team ID (Xcode → Signing & Capabilities) hoặc chọn team trong Xcode
