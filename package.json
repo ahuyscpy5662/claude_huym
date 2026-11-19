@@ -1,0 +1,30 @@
+{
+  "name": "rhm-dich-pdf",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dịch tài liệu PDF Răng Hàm Mặt từ tiếng Anh sang tiếng Việt",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:e2e": "playwright test --trace off"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.10.0",
+    "@expo-google-fonts/noto-serif": "^0.4.2",
+    "idb": "^8.0.4",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.5.438",
+    "pdfmake": "^0.3.14"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/pdfmake": "^0.3.3",
+    "fake-indexeddb": "^6.2.8",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
+  }
+}
